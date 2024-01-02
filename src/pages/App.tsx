@@ -1,6 +1,6 @@
-import Wrapper from "./components/Wrapper";
-import Input from "./components/InputForm";
-import TodoList from "./components/TodoList";
+import Wrapper from "../components/Wrapper";
+import Input from "../components/InputForm";
+import TodoList from "../components/TodoList";
 import { Show, createSignal, createUniqueId } from "solid-js";
 const App = () => {
   const [todos, setTodos] = createSignal<Todo[]>([]);
@@ -9,7 +9,7 @@ const App = () => {
     {
       id: createUniqueId(),
       isDone: false,
-      text: "1つtodoを追加",
+      text: "サンプル1",
       createdAt: new Date(),
     },
   ]);
@@ -20,7 +20,7 @@ const App = () => {
       <Input setTodos={setTodos} />
       <Show
         when={todos().length > 0}
-        fallback={<div class="mt-6">ToDo:0件</div>}
+        fallback={<div class="mt-6">タスクはありません</div>}
       >
         {<TodoList todos={todos()} setTodos={setTodos} />}
       </Show>
